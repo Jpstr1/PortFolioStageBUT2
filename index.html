@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio BUT2 - Julian Pasteur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="images/logo-kuba.jpg" alt="Kuba">
+      <div class="sidebar-name">Julian Pasteur</div>
+      <a href="mailto:julian.pasteur1@gmail.com" class="sidebar-email">julian.pasteur1@gmail.com</a>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="technique.html">Technique</a></li>
+        <li><a href="suivi.html">Suivi de projet</a></li>
+        <li><a href="integration.html">Intégration en entreprise</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Contenu principal -->
+  <main class="main-content">
+    <span class="section-number">Portfolio BUT2</span>
+    <h1>Stage chez Kuba</h1>
+    
+    <p class="text-lg leading-relaxed mb-8" style="font-size: 1.125rem; line-height: 1.7; margin-bottom: 2rem;">
+      Ce portfolio présente les compétences développées lors de mon stage de 10 semaines chez Kuba, 
+      spécialisé dans les solutions de paiement pour le transport public. J'y ai conçu et déployé 
+      un pipeline de données automatisé pour la détection d'anomalies financières.
+    </p>
+
+    <hr class="divider">
+
+    <!-- Contexte entreprise -->
+    <section>
+      <h2>L'entreprise</h2>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        <strong>Kuba</strong> est une entreprise spécialisée dans les solutions de billettique et de paiement 
+        pour le transport public. Avec environ 200 salariés et un chiffre d'affaires de 27 millions d'euros 
+        en 2025, Kuba développe notamment le logiciel CCH utilisé pour la répartition financière 
+        entre les différents acteurs du transport.
+      </p>
+      <p style="line-height: 1.7;">
+        J'ai intégré l'équipe de data et intelligence artificielle, encadrée par Yannick Nya, mon manager direct, et Adrien Naudet, manager Multi-domaines.
+        Mon stage s'est déroulé du 7 avril au 13 juin 2025.
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Sujet du stage -->
+    <section>
+      <h2>Le sujet</h2>
+      
+      <h3>Le logiciel CCH : un système de répartition financière à grande échelle</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Kuba développe et maintient le logiciel <strong>CCH</strong>, un système de répartition 
+        financière utilisé dans le transport public. Lorsqu'un usager achète un billet, le montant est réparti entre plusieurs acteurs : 
+        Kuba (l'opérateur de billettique), l'entreprise de transport (comme la SNCF), la région et la ville. Cette année, le logiciel 
+        a géré la répartition de <strong>plusieurs millions d'euros</strong> entre ces différents prestataires.
+      </p>
+
+      <h3>Le problème : des erreurs de données difficiles à détecter et suivre</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Le logiciel CCH est immense et complexe. Des erreurs de données surviennent régulièrement, pas nécessairement dues au logiciel 
+        lui-même, mais à des situations métier particulières : remboursements effectués deux fois, paiements sans commande associée, 
+        incohérences entre les montants déclarés et les transactions réelles, etc.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Avant mon stage, l'entreprise disposait de <strong>22 requêtes SQL</strong> de détection d'erreurs, mais leur utilisation était 
+        entièrement manuelle : chaque jour, elles devaient être exécutées en base de données, puis leurs résultats copiés dans un 
+        Google Sheet. Les anomalies devaient donc y être analysées directement. Ce processus fastidieux rendait la <strong>visualisation de l'évolution des 
+        erreurs extrêmement difficile</strong>, et engendrait des risques d'erreurs de manipulation ou simplement de compréhension.
+      </p>
+
+      <h3>Ma mission : automatiser et moderniser le suivi des anomalies</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        <strong>Objectif :</strong> concevoir et déployer un système automatisé de détection et de visualisation des anomalies de données, 
+        permettant aux équipes techniques de suivre l'évolution des erreurs dans le temps et d'intervenir rapidement.
+      </p>
+      <p style="line-height: 1.7;">
+        Initialement prévu comme un pipeline complet (RDS → S3 → Redshift → QuickSight), le projet a <strong>pivoté vers une approche 
+        0-ETL</strong> avec des vues matérialisées directement sur Redshift, simplifiant considérablement l'architecture et la maintenance. 
+        Le livrable final : <strong>trois dashboards QuickSight</strong> organisés par type de contrôle et par région, permettant aux équipes 
+        techniques de détecter et corriger les anomalies de données au quotidien.
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Savoir-faire généraux -->
+    <section>
+      <h2>Savoir-faire généraux</h2>
+      <p style="line-height: 1.7; margin-bottom: 2rem;">
+        Ce stage a mobilisé des compétences techniques, de gestion de projet et d'intégration en entreprise. 
+        Chaque section détaille les savoir-faire développés, illustrés par des traces concrètes et évalués 
+        dans un bilan.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+        <!-- Technique -->
+        <div class="bilan-card">
+          <h3 style="margin-top: 0; color: var(--color-violine);">
+            <span class="section-number">01</span>
+            Technique
+          </h3>
+          <ul style="line-height: 1.8; padding-left: 1.25rem;">
+            <li>Concevoir et déployer un pipeline de données cloud</li>
+            <li>Écrire et optimiser des requêtes SQL en production</li>
+            <li>Versionner et déployer en environnement professionnel</li>
+          </ul>
+          <a href="technique.html" style="display: inline-block; margin-top: 1rem; color: var(--color-bleu); text-decoration: none; font-weight: 600;">
+            Voir les traces →
+          </a>
+        </div>
+
+        <!-- Suivi de projet -->
+        <div class="bilan-card">
+          <h3 style="margin-top: 0; color: var(--color-violine);">
+            <span class="section-number">02</span>
+            Suivi de projet
+          </h3>
+          <ul style="line-height: 1.8; padding-left: 1.25rem;">
+            <li>S'adapter aux évolutions d'un projet</li>
+            <li>Documenter et préparer la passation</li>
+          </ul>
+          <a href="suivi.html" style="display: inline-block; margin-top: 1rem; color: var(--color-bleu); text-decoration: none; font-weight: 600;">
+            Voir les traces →
+          </a>
+        </div>
+
+        <!-- Intégration -->
+        <div class="bilan-card">
+          <h3 style="margin-top: 0; color: var(--color-violine);">
+            <span class="section-number">03</span>
+            Intégration en entreprise
+          </h3>
+          <ul style="line-height: 1.8; padding-left: 1.25rem;">
+            <li>Collaborer en équipe et communiquer</li>
+            <li>Concevoir un outil orienté utilisateur final</li>
+          </ul>
+          <a href="integration.html" style="display: inline-block; margin-top: 1rem; color: var(--color-bleu); text-decoration: none; font-weight: 600;">
+            Voir les traces →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Footer -->
+    <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(30, 58, 95, 0.15); font-size: 0.875rem; color: var(--color-ink); opacity: 0.7;">
+      <p>Université Marie & Louis Pasteur, IUT Nord Franche-Comté</p>
+      <p>Portfolio BUT2 · Réalisation d'applications</p>
+      <p>Traces issues du stage chez Kuba</p>
+    </footer>
+  </main>
+</body>
+</html>

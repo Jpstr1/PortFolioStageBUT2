@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suivi de projet - Portfolio BUT2 - Julian Pasteur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="images/logo-kuba.jpg" alt="Kuba">
+      <div class="sidebar-name">Julian Pasteur</div>
+      <a href="mailto:julian.pasteur1@gmail.com" class="sidebar-email">julian.pasteur1@gmail.com</a>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="technique.html">Technique</a></li>
+        <li><a href="suivi.html" class="active">Suivi de projet</a></li>
+        <li><a href="integration.html">Intégration en entreprise</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Contenu principal -->
+  <main class="main-content">
+    <span class="section-number">Section 02</span>
+    <h1>Suivi de projet</h1>
+    
+    <p style="font-size: 1.125rem; line-height: 1.7; margin-bottom: 2rem;">
+      Cette section présente les compétences de gestion de projet développées lors du stage, illustrées par des traces 
+      concrètes et évaluées dans un bilan réflexif.
+    </p>
+
+    <hr class="divider">
+
+    <!-- Trace 1 -->
+    <section>
+      <span class="section-number">Trace 04</span>
+      <h2>Pivot vers l'approche 0-ETL</h2>
+      
+      <div class="trace">
+        <img src="images/traces/trace4-pivot.png" alt="Schéma comparatif avant/après pivot">
+        <p class="trace-caption">
+          <strong>Trace 4 :</strong> Schéma comparatif montrant l'abandon du pipeline Python au profit de l'approche 0-ETL. Les deux schémas côte à côte illustrent la simplification de l'architecture.
+        </p>
+      </div>
+
+      <h3>Savoir-faire mobilisés</h3>
+      <ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><span class="mark mark-violine">01</span> Accepter l'abandon d'un travail accompli</li>
+        <li><span class="mark mark-violine">02</span> Comprendre rapidement une nouvelle approche technique</li>
+        <li><span class="mark mark-violine">03</span> Rebondir face à un blocage technique en anticipant d'autres tâches</li>
+        <li><span class="mark mark-violine">04</span> Chercher la solution la plus simple plutôt qu'une usine à gaz</li>
+      </ul>
+
+      <h3>Descriptif général</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        La Trace 4 montre le changement majeur d'architecture intervenu le jeudi de la semaine 2. Après une semaine complète de développement sur le pipeline Python (script de 1600+ lignes, PoC Docker/MinIO, base de données fictive), une réunion a conduit à l'abandon total de cette approche au profit du modèle 0-ETL déjà intégré au logiciel CCH. Mon travail précédent ne servait plus.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Cette trace représente un moment clé du stage : la capacité à accepter qu'un travail accompli soit abandonné pour une solution meilleure, et à basculer immédiatement sur une nouvelle approche sans perdre de temps.
+      </p>
+
+      <h3>Descriptif des savoir-faire</h3>
+      
+      <h4><span class="mark mark-violine">01</span> Accepter l'abandon d'un travail accompli</h4>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        J'ai ressenti de la frustration quand on m'a expliqué pourquoi mon travail était inutile. C'est le genre de situation qui pouvait être très frustrante pour moi à l'IUT, où les projets sont cadrés et les consignes fixes. Mais j'ai réussi à passer outre rapidement. J'ai compris qu'en entreprise, les priorités évoluent et qu'il faut savoir remettre en question son travail quand une meilleure solution apparaît.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        La réunion du jeudi semaine 2 rassemblait Yannick Nya (mon manager), Adrien Naudet (manager de l'équipe), et des développeurs qui utiliseront ma solution. Ils m'ont expliqué que mon approche était intéressante mais complexe, alors que le 0-ETL venait d'être déployé en production et était utilisable. Afin que mon travail ne devienne pas obsolète, nous avons adapté la solution. Le script Python a été jeté complètement.
+      </p>
+
+      <h4><span class="mark mark-violine">02</span> Comprendre rapidement une nouvelle approche technique</h4>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Le pivot vers le 0-ETL m'a obligé à comprendre rapidement le fonctionnement de Redshift et des vues matérialisées. Le 0-ETL était l'architecture prévue pour la prochaine version du logiciel CCH, c'était donc une approche déjà validée par l'entreprise. J'ai récupéré les accès au Git du logiciel CCH pour m'imprégner de leurs méthodes, et j'ai commencé à créer des vues matérialisées sur ma branche dédiée dès le jeudi après-midi.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Ce changement radical m'a appris à m'adapter rapidement. Avant le stage, je n'avais jamais vécu un changement de direction aussi radical dans un projet. Cette expérience a changé ma façon d'aborder les projets : je suis maintenant plus flexible et moins attaché à mes solutions initiales.
+      </p>
+
+      <h4><span class="mark mark-violine">03</span> Rebondir face à un blocage technique en anticipant d'autres tâches</h4>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        En semaine 6, quand mon environnement technique était complètement indisponible à cause de la mise à jour de la base de test, j'ai pivoté sur la création de graphiques fictifs sur QuickSight à partir de données inventées. Cela m'a permis de rester productif malgré les blocages et de prendre de l'avance sur la conception visuelle des dashboards.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Cette capacité à rebondir est essentielle en entreprise. Les projets ne se déroulent jamais exactement comme prévu, et savoir gérer les temps de blocage en anticipant sur d'autres tâches productives fait la différence.
+      </p>
+
+      <h4><span class="mark mark-violine">04</span> Chercher la solution la plus simple plutôt qu'une usine à gaz</h4>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        En semaine 6, face au problème de l'historisation des données, j'ai d'abord pensé à une architecture lourde (fonction Lambda quotidienne, stockage CSV sur S3, réimportation). Après avoir échangé avec un collègue, j'ai réalisé qu'en modifiant simplement les requêtes d'origine (en retirant les filtres temporels), la vue pouvait d'elle-même conserver toutes les données. Cette solution simple fonctionne parfaitement et reste facile à maintenir.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Cette expérience m'a appris à chercher la solution la plus directe plutôt que de monter une usine à gaz. Le pivot vers le 0-ETL m'avait déjà montré qu'une approche plus simple était souvent meilleure, et j'ai appliqué cette leçon tout au long du stage.
+      </p>
+
+      <h3>Changements concrets apportés par le 0-ETL</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Le passage au 0-ETL a simplifié considérablement l'architecture : plus besoin de S3, plus besoin de conversions multiples des données. Les vues matérialisées sont directement "appelables" dans les datasets QuickSight, ce qui réduit la complexité et les points de défaillance potentiels. Cette simplification a aussi rendu la maintenance beaucoup plus facile pour les équipes qui prendront le relais après mon départ.
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Trace 2 -->
+    <section>
+      <span class="section-number">Trace 05</span>
+      <h2>Documentation et préparation de la passation</h2>
+      
+      <div class="trace">
+        <img src="images/traces/trace5-doc.png" alt="Documentation en ligne">
+        <p class="trace-caption">
+          <strong>Trace 5 :</strong> Montage de plusieurs captures montrant la documentation publiée sur la plateforme interne de Kuba, incluant les descriptions des requêtes (technique et métier) et le tutoriel "Comment créer une nouvelle analyse".
+        </p>
+      </div>
+
+      <h3>Savoir-faire mobilisés</h3>
+      <ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><span class="mark mark-bleu">01</span> Rédiger une documentation technique et métier accessible</li>
+        <li><span class="mark mark-bleu">02</span> Créer un tutoriel pas-à-pas pour des utilisateurs de tous niveaux</li>
+        <li><span class="mark mark-bleu">03</span> Intégrer des commentaires pédagogiques dans le code</li>
+      </ul>
+
+      <h3>Descriptif général</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        La Trace 5 montre la documentation que j'ai rédigée et publiée sur la plateforme interne de Kuba, accessible à tous les employés. Elle comprend deux volets : une documentation des requêtes (expliquant la logique technique et métier) et un tutoriel "Comment créer une nouvelle analyse" détaillant chaque étape de zéro.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Cette documentation est essentielle pour la passation. Elle permet à n'importe quel développeur de comprendre et maintenir le travail réalisé, quel que soit son niveau de compétence.
+      </p>
+
+      <h3>Descriptif des savoir-faire</h3>
+      
+      <h4><span class="mark mark-bleu">01</span> Rédiger une documentation technique et métier accessible</h4>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        J'ai documenté chaque requête en expliquant à la fois le côté technique (jointures, filtres, transformations) et le côté métier (reversals, mouvements de fonds, soldes d'agents). Le but était que le prochain développeur ne rencontre pas les mêmes difficultés logiques et techniques que moi. J'ai aussi dû comprendre suffisamment la logique métier pour la vulgariser et la rendre accessible à des personnes non techniques.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        La documentation technique décrit précisément ce que fait chaque requête, quelles tables elle utilise, et quelles transformations elle applique. La documentation métier explique le contexte business : pourquoi cette erreur est problématique, quel impact elle a sur la répartition financière, et comment la corriger.
+      </p>
+
+      <h4><span class="mark mark-bleu">02</span> Créer un tutoriel pas-à-pas pour des utilisateurs de tous niveaux</h4>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Le tutoriel "Comment créer une nouvelle analyse" a été conçu pour être accessible à tous, quel que soit le niveau de compétence. Il y avait trop d'étapes pour les détailler ici, mais elles couvraient chaque étape dans la console AWS (création du DataSet, configuration des paramètres, déploiement) et les modifications à faire dans le code en local pour que tout soit propre et conforme à ce qui existe déjà.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        J'ai inclus des captures d'écran de la console AWS à chaque étape, des explications pas à pas, et des exemples de code à copier-coller. L'objectif était que n'importe qui puisse reproduire le processus sans avoir à me poser de questions après mon départ.
+      </p>
+
+      <h4><span class="mark mark-bleu">03</span> Intégrer des commentaires pédagogiques dans le code</h4>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        J'ai intégré des commentaires détaillés directement dans le code SQL pour expliquer la logique des jointures et des filtres appliqués. Ces commentaires facilitent la maintenance future et aident les prochains développeurs à comprendre rapidement les choix effectués.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Par exemple, pour une jointure complexe entre plusieurs tables, j'ai ajouté un commentaire expliquant pourquoi cette jointure est nécessaire, quelles données elle permet de récupérer, et quels pièges éviter (comme les doublons ou les valeurs NULL). Je n'ai pas d'exemple précis sous la main sur cet ordinateur, mais l'idée était de rendre le code auto-explicatif autant que possible.
+      </p>
+
+      <h3>Apprentissage et prise de conscience</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Avant le stage, je documentais mes projets de l'IUT avec des README basiques, sans vraiment me soucier de la maintenance future. J'ai appris l'importance de la documentation en voyant les difficultés que j'ai moi-même rencontrées avec des documentations peu fournies, notamment lors de la récupération de la base à jour en semaine 5 où j'ai perdu une journée complète à cause d'un manque de documentation.
+      </p>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Cette expérience m'a convaincu de l'importance de bien documenter. La documentation est un investissement qui fait gagner du temps à long terme, même si cela prend du temps à rédiger sur le moment.
+      </p>
+
+      <h3>Retours et utilisation</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Je ne sais pas si ma documentation a été utilisée après mon départ, car je n'ai pas eu de retours directs. Cependant, je l'ai conçue pour être complète et accessible, en me mettant à la place d'un développeur qui découvrirait le projet sans aucune connaissance préalable. Si elle est utilisée, elle devrait permettre une prise en main rapide et une maintenance sereine.
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Lien vers bilan -->
+    <section style="text-align: center; margin: 3rem 0;">
+      <a href="suivi-bilan.html" style="display: inline-block; padding: 1rem 2rem; background: var(--color-violine); color: white; text-decoration: none; border-radius: 4px; font-weight: 600; transition: background 0.2s;">
+        Voir le bilan suivi de projet →
+      </a>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Footer -->
+    <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(30, 58, 95, 0.15); font-size: 0.875rem; color: var(--color-ink); opacity: 0.7;">
+      <p>Université Marie & Louis Pasteur, IUT Nord Franche-Comté</p>
+      <p>Portfolio BUT2 · Réalisation d'applications</p>
+      <p>Traces issues du stage chez Kuba</p>
+    </footer>
+  </main>
+</body>
+</html>
