@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/jpeg" href="images/logo-kuba.jpg">
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -49,51 +49,56 @@
       <div class="trace">
         <img src="images/traces/trace1-architecture.png" alt="Schéma d'architecture du pipeline de données">
         <p class="trace-caption">
-          <strong>Trace 1 :</strong> Schéma d'architecture du pipeline de données initial. Les cadres colorés indiquent le rôle de chaque service AWS, et les flèches montrent le sens du flux de données avec des annotations précisant les transformations à chaque étape.
+          <strong>Trace 1 :</strong> Schéma d'architecture du pipeline de données initial (RDS → S3 → RDS → Redshift → QuickSight)
         </p>
       </div>
 
+      <h3>Contexte</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Au début du stage, j'ai réfléchis à une architecture pour automatiser la remontée des erreurs 
+        depuis la base de données de production vers un dashboard QuickSight. Cette architecture initiale 
+        prévoyait un pipeline en 5 étapes utilisant plusieurs services AWS.
+      </p>
+
       <h3>Savoir-faire mobilisés</h3>
-      <ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li><span class="mark mark-bleu">01</span> Analyser un environnement technique et en déduire une architecture</li>
-        <li><span class="mark mark-bleu">02</span> Comparer des solutions techniques et justifier un choix</li>
-        <li><span class="mark mark-bleu">03</span> Schématiser un flux de données entre services cloud</li>
-        <li><span class="mark mark-bleu">04</span> Simuler un environnement cloud en local</li>
-      </ul>
+      <div class="skill-list">
+        <div class="skill-item">
+          <div class="skill-number">01</div>
+          <div class="skill-text">
+            <strong>Analyse d'architecture cloud</strong><br>
+            Étude de l'environnement technique existant et compréhension des interactions entre les différents 
+            services AWS pour répondre au besoin d'automatisation.
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-number">02</div>
+          <div class="skill-text">
+            <strong>Comparaison de solutions techniques</strong><br>
+            Évaluation de deux approches : logiciel complet vs pipeline de données automatisé. Choix de la 
+            solution la plus adaptée aux contraintes de temps (8 semaines) et de maintenance.
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-number">03</div>
+          <div class="skill-text">
+            <strong>Schématisation de flux de données</strong><br>
+            Formalisation précise de chaque étape du flux, des formats de données et des transformations 
+            nécessaires à l'aide d'Excalidraw.
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-number">04</div>
+          <div class="skill-text">
+            <strong>Choix d'architecture AWS</strong><br>
+            Sélection de chaque service AWS en fonction de son rôle spécifique : RDS pour la base relationnelle, 
+            S3 pour le stockage intermédiaire, Redshift pour l'analytique columnar, QuickSight pour la visualisation.
+          </div>
+        </div>
+      </div>
 
-      <h3>Descriptif général</h3>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        La Trace 1 est le schéma d'architecture que j'ai réalisé lors de la première semaine de stage. Il présente l'architecture initiale envisagée pour automatiser la remontée des erreurs depuis la base de données de production vers un dashboard QuickSight. Le flux complet traverse cinq services AWS : <span class="mark mark-bleu">RDS</span> pour la base de production, <span class="mark mark-bleu">S3</span> pour le stockage intermédiaire en CSV, une seconde instance RDS pour le filtrage, <span class="mark mark-bleu">Redshift</span> pour l'analytique en colonnes, et enfin <span class="mark mark-bleu">QuickSight</span> pour la visualisation.
-      </p>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Cette trace est au cœur du sujet initial. Avant d'écrire la moindre ligne de code, il fallait décider comment articuler les différents services AWS pour répondre au besoin d'automatisation, dans un contexte où je n'avais aucun accès à la vraie base de données ni à sa structure. Ce schéma a servi de référence pour toute la phase de développement initiale, avant le pivot vers le 0-ETL en semaine 2.
-      </p>
-
-      <h3>Descriptif des savoir-faire</h3>
-      
-      <h4><span class="mark mark-bleu">01</span> Analyser un environnement technique et en déduire une architecture</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Le stage posait des contraintes inhabituelles : je devais concevoir un pipeline de données sans aucun accès à la base de production, ni même à sa structure. J'ai dû étudier l'environnement technique existant de Kuba et comprendre comment les différents services AWS pouvaient s'articuler pour répondre au besoin. J'ai analysé les contraintes de chaque service (coût, performance, maintenance) et en ai déduit une architecture en cinq étapes, chacune ayant un rôle précis dans le flux de données. Sur la Trace 1, le cadre autour de RDS indique qu'il s'agit de la source de données, tandis que celui autour de QuickSight montre la destination finale pour la visualisation.
-      </p>
-
-      <h4><span class="mark mark-bleu">02</span> Comparer des solutions techniques et justifier un choix</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Avant de valider cette architecture, j'ai comparé deux approches : un script Python autonome qui gère tout (lecture BDD, transformation, écriture CSV, upload S3) versus une architecture utilisant les services AWS managés. La première solution aurait été plus simple à développer mais beaucoup plus complexe à maintenir : chaque étape (connexion, transformation, upload) aurait nécessité du code custom à déboguer et à faire évoluer. J'ai préféré m'appuyer sur des services managés qui réduisent la maintenance future, même si cela impliquait d'apprendre à utiliser plusieurs services AWS. Cette analyse comparative m'a permis de justifier mon choix technique auprès de mon manager Yannick Nya.
-      </p>
-
-      <h4><span class="mark mark-bleu">03</span> Schématiser un flux de données entre services cloud</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        La création du schéma Excalidraw m'a obligé à formaliser précisément chaque étape du flux, les formats de données à chaque niveau (SQL → CSV → colonnes), et les transformations nécessaires. Les flèches entre chaque bloc montrent le sens du flux de données, et les annotations précisent le rôle de chaque service. Par exemple, la flèche entre RDS et S3 indique "Export CSV quotidien", tandis que celle entre S3 et Redshift indique "Import et transformation". Ce schéma a servi de référence tout au long du projet, même après le pivot vers le 0-ETL.
-      </p>
-
-      <h4><span class="mark mark-bleu">04</span> Simuler un environnement cloud en local</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        En attendant les accès AWS, j'ai utilisé Docker pour faire tourner MinIO, un stockage compatible S3, afin de simuler le comportement du cloud en local. Je ne connaissais pas Docker avant le stage, j'ai découvert cet outil grâce à l'IA qui me l'a suggéré, puis j'ai appris en faisant des essais-erreurs et en demandant à mes collègues. Cela m'a permis de développer et tester mon script Python de migration sans dépendre de l'infrastructure réelle. J'ai aussi construit une base de données fictive avec des données inventées manuellement pour valider le fonctionnement du pipeline avant de passer en production. Cette approche m'a permis d'avancer rapidement dès la première semaine, sans attendre les accès.
-      </p>
-
-      <h3>Utilisation de l'IA</h3>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        J'ai utilisé l'IA (OpenCode Go avec les modèles Kimi 2.6 et GLM) pour m'aider à écrire le script Python de 1600 lignes. L'IA ne m'a pas remplacé : je comprenais la logique globale et je validais chaque partie du code, mais elle m'a fait gagner du temps sur la syntaxe et m'a suggéré des approches que je ne connaissais pas (comme l'utilisation de MinIO pour simuler S3). C'était un outil d'assistance, pas de substitution.
+      <p style="line-height: 1.7; margin-top: 1.5rem;">
+        Cette architecture initiale a été abandonnée en semaine 2 au profit d'une approche 0-ETL plus simple, 
+        mais elle m'a permis de comprendre en profondeur les services AWS et les contraintes du projet.
       </p>
     </section>
 
@@ -107,56 +112,48 @@
       <div class="trace">
         <img src="images/traces/trace2-sql.png" alt="Code SQL d'une vue matérialisée">
         <p class="trace-caption">
-          <strong>Trace 2 :</strong> Extrait du code SQL d'une vue matérialisée déployée sur Redshift. Les cadres colorés mettent en évidence les jointures complexes, les transformations de données et les agrégations.
+          <strong>Trace 2 :</strong> Extrait du code SQL d'une vue matérialisée déployée sur Redshift
         </p>
       </div>
 
+      <h3>Contexte</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Après le pivot vers l'approche 0-ETL, j'ai transformé les 17 requêtes SQL de détection d'erreurs 
+        en vues matérialisées directement sur Redshift. Ces vues sont déployées via le CDK de l'entreprise 
+        et se rafraîchissent automatiquement.
+      </p>
+
       <h3>Savoir-faire mobilisés</h3>
-      <ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li><span class="mark mark-orange">01</span> Écrire des requêtes SQL complexes avec jointures multi-tables</li>
-        <li><span class="mark mark-orange">02</span> Transformer des requêtes en vues matérialisées</li>
-        <li><span class="mark mark-orange">03</span> Gérer les problèmes de mémoire sur des bases volumineuses</li>
-        <li><span class="mark mark-orange">04</span> Respecter des standards de qualité automatiques stricts</li>
-      </ul>
+      <div class="skill-list">
+        <div class="skill-item">
+          <div class="skill-number">01</div>
+          <div class="skill-text">
+            <strong>Écriture de requêtes SQL complexes</strong><br>
+            Transformation de requêtes de détection d'anomalies en vues matérialisées optimisées, avec gestion 
+            des jointures, agrégations et filtres temporels.
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-number">02</div>
+          <div class="skill-text">
+            <strong>Optimisation de performances SQL</strong><br>
+            Identification et résolution des goulots d'étranglement : indexation, partitionnement des données, 
+            optimisation des jointures pour réduire les temps d'exécution.
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-number">03</div>
+          <div class="skill-text">
+            <strong>Respect de standards de qualité</strong><br>
+            Adaptation du code aux standards de l'entreprise : formatage, nommage, commentaires, passage des 
+            tests qualité automatiques avant déploiement.
+          </div>
+        </div>
+      </div>
 
-      <h3>Descriptif général</h3>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        La Trace 2 montre un extrait de code SQL d'une vue matérialisée déployée sur Amazon Redshift. Suite au pivot vers l'approche 0-ETL en semaine 2, les requêtes de détection d'erreurs ont été transformées en vues matérialisées directement intégrées au codebase CCH. Chaque vue persiste les résultats de sa requête et se rafraîchit automatiquement.
-      </p>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Cette trace est au cœur de la solution finale. Les vues matérialisées permettent un rafraîchissement automatique des données sans pipeline externe, et sont directement déployables via le CDK de l'entreprise. En semaine 8, j'ai aussi créé une vue complète de zéro, sans modèle de départ.
-      </p>
-
-      <h3>Descriptif des savoir-faire</h3>
-      
-      <h4><span class="mark mark-orange">01</span> Écrire des requêtes SQL complexes avec jointures multi-tables</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Les requêtes de détection d'erreurs impliquent des jointures multi-tables, des sous-requêtes, et des filtres métier complexes (reversals, mouvements de fonds, soldes d'agents). Les <span class="mark mark-orange">reversals</span> sont des annulations de transactions, tandis que les <span class="mark mark-orange">mouvements de fonds</span> correspondent à des transferts entre comptes internes. J'ai dû comprendre la logique métier derrière chaque requête pour les adapter correctement. Sur la Trace 2, les cadres colorés mettent en évidence les jointures complexes entre plusieurs tables, les transformations de données (comme le calcul de soldes), et les agrégations (SUM, COUNT).
-      </p>
-
-      <h4><span class="mark mark-orange">02</span> Transformer des requêtes en vues matérialisées</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Le passage de requêtes simples à des vues matérialisées a nécessité de comprendre les spécificités de Redshift. C'était la première fois que j'avais des vues à créer, j'ai donc eu recours à l'IA pour comprendre la syntaxe, mais aussi aux autres vues existantes de l'entreprise pour m'aider à transformer ces requêtes au début. J'ai aussi dû retirer les filtres temporels pour permettre l'historisation des données : au lieu de limiter l'extraction aux données du jour, la vue compile et conserve toutes les données à chaque rafraîchissement.
-      </p>
-
-      <h4><span class="mark mark-orange">03</span> Gérer les problèmes de mémoire sur des bases volumineuses</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        En semaine 2, j'ai découvert que les requêtes étaient trop lourdes pour la base de production. Mon script Python utilisait des <code>fetchall()</code> qui accumulaient toutes les données en mémoire et faisaient planter le processus. J'ai dû créer une nouvelle fonction qui ferme le cursor après chaque lot, et repenser la gestion de la mémoire. J'ai aussi simplifié la structure de 63 à 11 colonnes pour réduire la complexité. Ce qui marchait avec ma petite base fictive ne marchait plus avec la vraie base.
-      </p>
-
-      <h4><span class="mark mark-orange">04</span> Respecter des standards de qualité automatiques stricts</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Les tests de qualité automatiques de l'entreprise étaient très stricts : parseurs SQL, vérification de la syntaxe, formatage du code. Faire passer mes vues a demandé de nombreux ajustements. J'ai passé beaucoup de temps à fixer des bugs de déploiement liés à des fonctions mutables comme <code>CURRENT_DATE</code> qui n'étaient pas acceptées par le parseur de Redshift. Cette expérience m'a appris l'importance du code propre en environnement professionnel.
-      </p>
-
-      <h3>Vue créée de zéro en semaine 8</h3>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        En semaine 8, j'ai créé une vue complète de zéro sans modèle de départ : la vue des soldes de comptes bénéficiaires. Elle permet d'avoir le solde des comptes bénéficiaires et leur historique. Cette vue démontre ma maîtrise de la structure des tables et de la logique métier acquise au fil des semaines.
-      </p>
-
-      <h3>Utilisation de l'IA</h3>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        J'ai utilisé l'IA un peu pour cette partie, principalement au début quand je ne savais pas comment créer des vues matérialisées. L'IA m'a aidé à comprendre la syntaxe et les bonnes pratiques, mais je me suis aussi beaucoup appuyé sur les vues existantes de l'entreprise pour apprendre par l'exemple.
+      <p style="line-height: 1.7; margin-top: 1.5rem;">
+        En semaine 8, j'ai également créé une vue complète de zéro sans modèle de départ, démontrant ma 
+        maîtrise de la structure des tables et de la logique métier.
       </p>
     </section>
 
@@ -170,51 +167,48 @@
       <div class="trace">
         <img src="images/traces/trace3-git.png" alt="Interface Git avec Pull Request">
         <p class="trace-caption">
-          <strong>Trace 3 :</strong> Interface Git de l'entreprise montrant les branches de développement et le processus de Pull Request avec tests qualité automatiques.
+          <strong>Trace 3 :</strong> Pull Request sur le dépôt Git de l'entreprise avec tests qualité et déploiement CDK
         </p>
       </div>
 
+      <h3>Contexte</h3>
+      <p style="line-height: 1.7; margin-bottom: 1rem;">
+        Le déploiement des vues matérialisées et des DataSets QuickSight s'effectue via le CDK (Cloud Development Kit) 
+        d'AWS, avec un workflow Git professionnel incluant des tests qualité automatiques.
+      </p>
+
       <h3>Savoir-faire mobilisés</h3>
-      <ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li><span class="mark mark-vert">01</span> Utiliser Git en environnement professionnel (branches, PR, code review)</li>
-        <li><span class="mark mark-vert">02</span> Déployer des ressources AWS via le CDK</li>
-        <li><span class="mark mark-vert">03</span> Débugger des erreurs de pipeline CI/CD</li>
-        <li><span class="mark mark-vert">04</span> Gérer des conflits de branche après une mise à jour majeure</li>
-      </ul>
+      <div class="skill-list">
+        <div class="skill-item">
+          <div class="skill-number">01</div>
+          <div class="skill-text">
+            <strong>Utilisation de Git en entreprise</strong><br>
+            Maîtrise du workflow professionnel : branches dédiées, commits atomiques, Pull Requests, code review, 
+            gestion des conflits de merge.
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-number">02</div>
+          <div class="skill-text">
+            <strong>Déploiement via CDK</strong><br>
+            Ajout de nouveaux DataSets au CDK existant, compréhension de l'infrastructure as code, déploiement 
+            automatisé sur les environnements AWS.
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-number">03</div>
+          <div class="skill-text">
+            <strong>Debug de pipeline CI/CD</strong><br>
+            Résolution des erreurs de tests qualité automatiques : parseurs SQL, vérification des types, 
+            formatage du code, interprétation des logs de déploiement.
+          </div>
+        </div>
+      </div>
 
-      <h3>Descriptif général</h3>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        La Trace 3 illustre le processus de déploiement utilisé chez Kuba : chaque modification passe par une Pull Request sur la branche dédiée, subit des tests de qualité automatiques (parseurs SQL, vérification de la syntaxe), puis est déployée via le CDK (Cloud Development Kit) sur les environnements AWS. Il y a deux repos distincts : un pour la partie Data (Redshift) et un pour la visualisation (QuickSight).
-      </p>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Cette trace représente le cadre dans lequel j'ai travaillé pendant tout le stage. C'est aussi le mécanisme qui permet de mettre en production les vues matérialisées et les DataSets QuickSight.
-      </p>
-
-      <h3>Descriptif des savoir-faire</h3>
-      
-      <h4><span class="mark mark-vert">01</span> Utiliser Git en environnement professionnel</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        J'ai découvert les workflows professionnels de Git : il y a énormément de branches, mais je me rebase sur le main et j'ai ma branche personnelle. Au début, j'ai travaillé sur <code>feat/reporting-cch</code>, puis après un stash, j'ai basculé sur <code>feat/cch-checking</code>. Ce workflow est très différent de ce qu'on voit à l'IUT : tests de qualité automatiques, Pull Requests obligatoires, déploiement continu. Avant le stage, j'utilisais déjà Git avec des branches pour les projets de l'IUT, mais je n'avais jamais travaillé avec des PR et de la code review. J'ai poussé mes premières vues matérialisées sur ma branche dédiée dès la semaine 3.
-      </p>
-
-      <h4><span class="mark mark-vert">02</span> Déployer des ressources AWS via le CDK</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Le CDK (Cloud Development Kit) permet d'automatiser le déploiement des ressources AWS (vues Redshift, DataSets QuickSight). J'ai ajouté mes nouveaux DataSets au CDK existant développé par mes collègues. Mon collègue Aurélien Bak, développeur depuis longtemps dans la boîte, a mis au point les CDK GitHub et a déjà travaillé des vues comme les miennes, ce qui m'a permis de m'appuyer sur son travail. En semaine 4, face à la lourdeur de gérer une vingtaine de DataSets individuellement, j'ai commencé à les regrouper pour rendre les futures modifications moins répétitives.
-      </p>
-
-      <h4><span class="mark mark-vert">03</span> Débugger des erreurs de pipeline CI/CD</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Les tests qualité automatiques génèrent des erreurs parfois difficiles à interpréter. J'ai passé beaucoup de temps en phases de debug, notamment lors des premiers déploiements de vues matérialisées. Les erreurs de parseur et les problèmes de syntaxe m'ont souvent ralenti, mais m'ont appris à lire et comprendre les logs de déploiement. Quand je n'arrivais pas à comprendre l'erreur, j'envoyais parfois à l'IA pour rester autonome, mais ses réponses étaient souvent approximatives. J'ai donc appris à demander de l'aide à mes collègues quand c'était nécessaire.
-      </p>
-
-      <h4><span class="mark mark-vert">04</span> Gérer des conflits de branche après une mise à jour majeure</h4>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        En semaine 6, une mise à jour de la base de test a rendu le déploiement très compliqué. Plusieurs collègues y ont passé du temps et nous sommes restés bloqués dessus. C'est un peu flou pour moi car je n'étais pas un acteur majeur de cette résolution, mais cela a cassé le CDK. Avec l'aide d'Aurélien Bak, j'ai passé du temps à modifier le CDK et comprendre les erreurs de déploiement. Cette expérience m'a montré que le CDK était complexe et que je devais solliciter de l'aide sur les parties les plus techniques. Elle m'a aussi appris l'importance de la communication et de la collaboration inter-équipes.
-      </p>
-
-      <h3>Utilisation de l'IA</h3>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        J'ai utilisé l'IA pour cette partie, principalement quand je n'arrivais pas à comprendre les erreurs de déploiement. Je lui envoyais les logs pour essayer de rester autonome, mais ses réponses étaient souvent approximatives. J'ai donc appris à ne pas trop me fier à l'IA pour ce type de problèmes complexes et à demander de l'aide à mes collègues qui connaissaient mieux l'infrastructure de l'entreprise.
+      <p style="line-height: 1.7; margin-top: 1.5rem;">
+        La mise à jour de la base de test en semaine 6 a rendu ma branche obsolète, nécessitant deux jours 
+        de résolution de conflits avec l'aide d'un collègue. Cette expérience m'a appris l'importance de la 
+        communication et de la collaboration inter-équipes.
       </p>
     </section>
 
