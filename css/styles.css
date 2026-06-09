@@ -510,10 +510,14 @@ h3 {
 }
 
 .trace img {
-  width: 50%;
+  max-width: 100%;
   border: 1px solid rgba(30, 58, 95, 0.15);
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(30, 58, 95, 0.08);
+}
+
+.trace img:not(.full-width) {
+  width: 50%;
 }
 
 .trace img.full-width {
