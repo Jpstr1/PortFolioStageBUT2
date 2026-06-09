@@ -516,6 +516,10 @@ h3 {
   box-shadow: 0 2px 8px rgba(30, 58, 95, 0.08);
 }
 
+.trace img.full-width {
+  width: 100%;
+}
+
 .trace-caption {
   font-size: 0.875rem;
   color: var(--color-ink);
