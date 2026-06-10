@@ -53,7 +53,7 @@
 
         <h3>Synthèse</h3>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          J'ai conçu une architecture complète de pipeline de données utilisant les services Amazon Web Services (AWS) (RDS, S3, Redshift, QuickSight). Suite au pivot vers le 0-ETL (sans ETL — Extract, Transform, Load), j'ai adapté cette architecture pour utiliser des vues matérialisées directement sur Redshift, simplifiant considérablement la solution. J'ai aussi utilisé Docker/MinIO pour simuler S3 en local avant d'obtenir les accès AWS, ce qui m'a permis d'avancer rapidement dès la première semaine.
+          J'ai conçu une architecture complète de pipeline de données utilisant les services Amazon Web Services (AWS) (RDS, S3, Redshift, QuickSight). Suite au pivot vers le 0-ETL (sans ETL — Extract, Transform, Load), j'ai adapté cette architecture pour utiliser des vues matérialisées directement sur Redshift, simplifiant considérablement la solution. J'ai aussi utilisé Docker/MinIO pour simuler S3 en local avant d'obtenir les accès AWS, ce qui m'a permis d'avancer rapidement durant la première semaine.
         </p>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
           Ce savoir-faire repose sur quatre savoir-faire élémentaires illustrés par la Trace 1 : analyser un environnement technique, comparer des solutions, schématiser un flux de données, et simuler un environnement cloud en local.
@@ -61,17 +61,17 @@
 
         <h3>Contexte d'apprentissage</h3>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          L'architecture cloud AWS était entièrement nouvelle pour moi. Les cours de base de données à l'IUT m'avaient donné des bases en SQL et en modélisation (MCD — Modèle conceptuel de données), mais l'aspect cloud et les services managés étaient inconnus. J'ai appris principalement lors du stage, en étudiant la documentation AWS, en faisant des essais-erreurs, et en échangeant avec mes collègues. L'IA (intelligence artificielle) m'a aussi aidé à comprendre certains concepts et à écrire le script Python de 1600 lignes.
+          L'architecture cloud AWS était entièrement nouvelle pour moi. Les cours de base de données à l'IUT m'avaient donné des bases en SQL et en modélisation (MCD — Modèle conceptuel de données), mais l'aspect cloud et les services managés étaient inconnus. J'ai appris principalement lors du stage, en étudiant la documentation AWS, en faisant des essais-erreurs, et en échangeant avec mes collègues. L'IA (intelligence artificielle) m'a aussi aidé à comprendre certains concepts et à écrire le script Python de 1600 lignes, utilisé pour l'achitecture pensée lors de la première semaine.
         </p>
 
         <h3>Difficultés rencontrées</h3>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          La principale difficulté a été de comprendre les contraintes de chaque service AWS (coût, performance, maintenance) et de choisir la bonne architecture sans avoir accès à la vraie base de données. Le pivot vers le 0-ETL en semaine 2 a été frustrant car j'avais passé une semaine complète à développer un script Python qui n'était plus utile, mais cette expérience m'a appris à chercher la solution la plus simple plutôt que de monter une usine à gaz.
+          La principale difficulté a été de comprendre les contraintes de chaque service AWS (coût, performance, maintenance) et de choisir la bonne architecture sans avoir accès à la vraie base de données. Le pivot vers le 0-ETL en semaine 2 a été frustrant car j'avais passé une semaine complète à développer un script Python qui n'était plus utile, mais cette expérience m'a appris à chercher la solution la plus simple plutôt que de commencer sans avoir suffisamment réfléchi à l'architecture.
         </p>
 
         <h3>Utilisation de l'IA</h3>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          J'ai utilisé l'IA (OpenCode Go avec Kimi 2.6 et GLM) pour m'aider à écrire le script Python. L'IA ne m'a pas remplacé : je comprenais la logique globale et je validais chaque partie du code, mais elle m'a fait gagner du temps sur la syntaxe et m'a suggéré des approches que je ne connaissais pas (comme MinIO pour simuler S3). C'était un outil d'assistance, pas de substitution.
+          J'ai utilisé l'IA (OpenCode Go avec Kimi 2.6 et GLM) pour m'aider à écrire le script Python. L'IA ne m'a pas remplacé : je comprenais bien la logique. Elle m'a surtout fait gagner du temps sur la syntaxe, le débuggage et m'a suggéré des approches que je ne connaissais pas (comme MinIO pour simuler S3). C'était un assistant.
         </p>
 
         <h3>Auto-évaluation nuancée</h3>
@@ -79,7 +79,7 @@
           Sur ce savoir-faire, je me sens aujourd'hui capable de concevoir une architecture de données cloud et de choisir les services adaptés. La Trace 1 en est l'exemple, et le pivot vers le 0-ETL montre que j'ai aussi su remettre en question mon architecture initiale pour une solution plus simple.
         </p>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          Je tiens toutefois à cadrer cette compétence. Elle est solide dans le périmètre des services AWS que j'ai utilisés (RDS, S3, Redshift, QuickSight). Face à un projet cloud utilisant d'autres providers (Azure, GCP) ou des services que je ne maîtrise pas encore, l'adaptation serait plus coûteuse. De plus, si je devais refaire ce stage, j'essaierais de moins foncer tête baissée et de m'assurer que l'architecture est la bonne dès le début, plutôt que de développer pendant une semaine avant de pivoter.
+          Je tiens toutefois à cadrer cette compétence. Elle est convenable dans le périmètre des services AWS que j'ai utilisés (RDS, S3, Redshift, QuickSight), mais en un peu plus de deux mois, je n'ai pas pu me familiariser parfaitement avec tout ce système que je venais de découvrir. De plus, face à un projet cloud utilisant d'autres providers ou des services que je ne maîtrise pas encore, l'adaptation serait plus difficile. Si je devais refaire ce stage, j'essaierais de moins foncer tête baissée et de m'assurer que l'architecture est la bonne dès le début, plutôt que de développer pendant une semaine avant de pivoter.
         </p>
 
         <div class="comparison-grid">
@@ -117,10 +117,10 @@
 
         <h3>Synthèse</h3>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          J'ai transformé les requêtes de détection d'erreurs en vues matérialisées sur Redshift, en respectant les contraintes de performance et les standards de qualité de l'entreprise. J'ai aussi créé une vue complète de zéro en semaine 8 (vue des soldes de comptes bénéficiaires), sans modèle de départ. J'ai dû gérer des problèmes de mémoire sur la base de production, des fonctions mutables non acceptées par le parseur, et une logique métier complexe (reversals, mouvements de fonds).
+          J'ai transformé les requêtes de détection d'erreurs en vues matérialisées sur Redshift, en respectant les contraintes de performance et les standards de qualité de l'entreprise. J'ai aussi créé une vue complète de zéro en semaine 8 (vue des soldes de comptes bénéficiaires), sans modèle de départ. J'ai dû gérer des problèmes syntaxe spécifique à RedShift, des fonctions mutables non acceptées par le parseur, et une logique métier complexe (reversals, mouvements de fonds).
         </p>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          Ce savoir-faire repose sur quatre savoir-faire élémentaires illustrés par la Trace 2 : écrire des requêtes complexes, transformer en vues matérialisées, gérer les problèmes de mémoire, et respecter des standards de qualité stricts.
+          Ce savoir-faire repose sur trois savoir-faire élémentaires illustrés par la Trace 2 : écrire / comprendre des requêtes complexes, transformer en vues matérialisées, et respecter des standards de qualité stricts.
         </p>
 
         <h3>Contexte d'apprentissage</h3>
