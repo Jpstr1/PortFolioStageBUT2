@@ -49,7 +49,7 @@
       <div class="trace">
         <img src="images/traces/trace4-pivot.png" alt="Schéma comparatif avant/après pivot">
         <p class="trace-caption">
-          <strong>Trace 4 :</strong> Schéma comparatif montrant l'abandon du pipeline Python au profit de l'approche 0-ETL. Les deux schémas côte à côte illustrent la simplification de l'architecture.
+          <strong>Trace 4 :</strong> Schéma comparatif montrant l'abandon du pipeline Python au profit de l'approche 0-ETL. Les deux schémas côte à côte illustrent la simplification de l'architecture. Attention, toute la partie de gauche ne représente que l'arcitecture de mon script python réalisé en première semaine. Le schéma de l'architecture complète est plus conséquent. La partie de droite est complète.
         </p>
       </div>
 
@@ -76,15 +76,15 @@
         J'ai ressenti de la frustration quand on m'a expliqué pourquoi mon travail était inutile. C'est le genre de situation qui pouvait être très frustrante pour moi à l'IUT, où les projets sont cadrés et les consignes fixes. Mais j'ai réussi à passer outre rapidement. J'ai compris qu'en entreprise, les priorités évoluent et qu'il faut savoir remettre en question son travail quand une meilleure solution apparaît.
       </p>
       <p style="line-height: 1.7; margin-bottom: 1rem;">
-        La réunion du jeudi semaine 2 rassemblait Yannick Nya (mon manager), Adrien Naudet (manager de l'équipe), et des développeurs qui utiliseront ma solution. Ils m'ont expliqué que mon approche était intéressante mais complexe, alors que le 0-ETL venait d'être déployé en production et était utilisable. Afin que mon travail ne devienne pas obsolète, nous avons adapté la solution. Le script Python a été jeté complètement.
+        La réunion hebdomadaire en semaine 2 rassemblait Yannick Nya (mon manager), Adrien Naudet (manager de l'équipe), et des développeurs qui utiliseront ma solution. Ils m'ont expliqué que mon approche était intéressante mais complexe, alors que le 0-ETL venait d'être déployé en production et était utilisable. Afin que mon travail ne devienne pas obsolète, nous avons adapté la solution. Le script Python a été jeté complètement.
       </p>
 
       <h4><span class="mark mark-violine">02</span> Comprendre rapidement une nouvelle approche technique</h4>
       <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Le pivot vers le 0-ETL m'a obligé à comprendre rapidement le fonctionnement de Redshift et des vues matérialisées. Le 0-ETL était l'architecture prévue pour la prochaine version du logiciel CCH, c'était donc une approche déjà validée par l'entreprise. J'ai récupéré les accès au Git du logiciel CCH pour m'imprégner de leurs méthodes, et j'ai commencé à créer des vues matérialisées sur ma branche dédiée dès le jeudi après-midi.
+        Le pivot vers le 0-ETL m'a obligé à comprendre rapidement le fonctionnement de Redshift et des vues matérialisées. Le 0-ETL était l'architecture prévue pour la prochaine version du logiciel CCH, c'était donc une approche déjà validée par l'entreprise. J'ai récupéré les accès au Git du logiciel CCH pour m'imprégner de leurs méthodes, et j'ai commencé à créer des vues matérialisées sur ma branche dédiée le jour même.
       </p>
       <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Ce changement radical m'a appris à m'adapter rapidement. Avant le stage, je n'avais jamais vécu un changement de direction aussi radical dans un projet. Cette expérience a changé ma façon d'aborder les projets : je suis maintenant plus flexible et moins attaché à mes solutions initiales.
+        Ce changement radical m'a appris à m'adapter rapidement. Avant le stage, je n'avais jamais vécu un changement de direction aussi radical dans un projet. Cette expérience a changé ma façon d'aborder les projets : je me considère maintenant plus flexible et moins attaché à mes solutions initiales.
       </p>
 
       <h4><span class="mark mark-violine">03</span> Rebondir face à un blocage technique en anticipant d'autres tâches</h4>
@@ -92,15 +92,15 @@
         En semaine 6, quand mon environnement technique était complètement indisponible à cause de la mise à jour de la base de test, j'ai pivoté sur la création de graphiques fictifs sur QuickSight à partir de données inventées. Cela m'a permis de rester productif malgré les blocages et de prendre de l'avance sur la conception visuelle des dashboards.
       </p>
       <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Cette capacité à rebondir est essentielle en entreprise. Les projets ne se déroulent jamais exactement comme prévu, et savoir gérer les temps de blocage en anticipant sur d'autres tâches productives fait la différence.
+        Je suis statisfait de cette capacité à rebondir, qui, je pense, est essentielle en entreprise pour rester productif. Les projets ne se déroulent jamais exactement comme prévu, et savoir gérer les temps de blocage en anticipant sur d'autres tâches productives fait la différence.
       </p>
 
-      <h4><span class="mark mark-violine">04</span> Chercher la solution la plus simple plutôt qu'une usine à gaz</h4>
+      <h4><span class="mark mark-violine">04</span> Chercher la solution la plus simple</h4>
       <p style="line-height: 1.7; margin-bottom: 1rem;">
-        En semaine 6, face au problème de l'historisation des données, j'ai d'abord pensé à une architecture lourde (fonction Lambda quotidienne, stockage CSV sur S3, réimportation). Après avoir échangé avec un collègue, j'ai réalisé qu'en modifiant simplement les requêtes d'origine (en retirant les filtres temporels), la vue pouvait d'elle-même conserver toutes les données. Cette solution simple fonctionne parfaitement et reste facile à maintenir.
+        En semaine 6, j'ai fais face au problème de l'historique des données, étant donné que les requêtes originales étaient réfléchies pour les récupérer à la journée. J'ai d'abord pensé à une architecture lourde (fonction Lambda quotidienne, stockage CSV sur S3, réimportation). Après avoir échangé avec un collègue, j'ai réalisé qu'en modifiant simplement les requêtes d'origine (en retirant les filtres temporels), la vue pouvait d'elle-même conserver toutes les données. Cette solution simple fonctionne parfaitement et reste facile à maintenir.
       </p>
       <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Cette expérience m'a appris à chercher la solution la plus directe plutôt que de monter une usine à gaz. Le pivot vers le 0-ETL m'avait déjà montré qu'une approche plus simple était souvent meilleure, et j'ai appliqué cette leçon tout au long du stage.
+        Cette expérience m'a appris à chercher la solution la plus directe. Le pivot vers le 0-ETL m'avait déjà montré qu'une approche plus simple était souvent meilleure, et j'ai appliqué cette leçon tout au long du stage.
       </p>
 
       <h3>Changements concrets apportés par le 0-ETL</h3>
@@ -119,7 +119,7 @@
       <div class="trace">
         <img src="images/traces/trace5-doc.png" alt="Documentation en ligne">
         <p class="trace-caption">
-          <strong>Trace 5 :</strong> Montage de plusieurs captures montrant la documentation publiée sur la plateforme interne de Kuba, incluant les descriptions des requêtes (technique et métier) et le tutoriel "Comment créer une nouvelle analyse".
+          <strong>Trace 5 :</strong> Montage de plusieurs captures montrant la documentation publiée sur la plateforme interne de Kuba (Confluence), incluant les descriptions des requêtes (technique et métier) et le tutoriel "Comment créer une nouvelle analyse QuickSight".
         </p>
       </div>
 
@@ -132,10 +132,10 @@
 
       <h3>Descriptif général</h3>
       <p style="line-height: 1.7; margin-bottom: 1rem;">
-        La Trace 5 montre la documentation que j'ai rédigée et publiée sur la plateforme interne de Kuba, accessible à tous les employés. Elle comprend deux volets : une documentation des requêtes (expliquant la logique technique et métier) et un tutoriel "Comment créer une nouvelle analyse" détaillant chaque étape de zéro.
+        La Trace 5 montre la documentation que j'ai rédigée et publiée sur la plateforme interne de Kuba, accessible à tous les employés. Elle comprend deux volets : une documentation des requêtes (expliquant la logique technique et métier) -> Non-présente sur la trace, et un tutoriel "Comment créer une nouvelle analyse" détaillant chaque étape de zéro.
       </p>
       <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Cette documentation est essentielle pour la passation. Elle permet à n'importe quel développeur de comprendre et maintenir le travail réalisé, quel que soit son niveau de compétence.
+        Cette documentation est essentielle pour la passation. Elle permet aux autres développeurs de comprendre et maintenir le travail réalisé.
       </p>
 
       <h3>Descriptif des savoir-faire</h3>
@@ -160,13 +160,10 @@
       <p style="line-height: 1.7; margin-bottom: 1rem;">
         J'ai intégré des commentaires détaillés directement dans le code SQL pour expliquer la logique des jointures et des filtres appliqués. Ces commentaires facilitent la maintenance future et aident les prochains développeurs à comprendre rapidement les choix effectués.
       </p>
-      <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Par exemple, pour une jointure complexe entre plusieurs tables, j'ai ajouté un commentaire expliquant pourquoi cette jointure est nécessaire, quelles données elle permet de récupérer, et quels pièges éviter (comme les doublons ou les valeurs NULL). Je n'ai pas d'exemple précis sous la main sur cet ordinateur, mais l'idée était de rendre le code auto-explicatif autant que possible.
-      </p>
 
       <h3>Apprentissage et prise de conscience</h3>
       <p style="line-height: 1.7; margin-bottom: 1rem;">
-        Avant le stage, je documentais mes projets de l'IUT avec des README basiques, sans vraiment me soucier de la maintenance future. J'ai appris l'importance de la documentation en voyant les difficultés que j'ai moi-même rencontrées avec des documentations peu fournies, notamment lors de la récupération de la base à jour en semaine 5 où j'ai perdu une journée complète à cause d'un manque de documentation.
+        Avant le stage, je documentais mes projets de l'IUT avec des README basiques, sans vraiment me soucier de la maintenance future. J'ai appris l'importance de la documentation en voyant les difficultés que j'ai moi-même rencontrées avec des documentations peu fournies, notamment lors de la récupération de la base à jour en semaine 6 où j'ai perdu une journée complète à cause d'un manque de documentation.
       </p>
       <p style="line-height: 1.7; margin-bottom: 1rem;">
         Cette expérience m'a convaincu de l'importance de bien documenter. La documentation est un investissement qui fait gagner du temps à long terme, même si cela prend du temps à rédiger sur le moment.

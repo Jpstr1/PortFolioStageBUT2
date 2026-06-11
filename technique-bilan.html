@@ -130,10 +130,10 @@
 
         <h3>Difficultés rencontrées</h3>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          Les tests de qualité automatiques étaient très stricts et généraient des erreurs difficiles à interpréter. J'ai passé beaucoup de temps à fixer des bugs de déploiement liés à des fonctions mutables comme <code>CURRENT_DATE</code> qui n'étaient pas acceptées par le parseur de Redshift. La compréhension de la logique métier derrière chaque requête a aussi été un défi, notamment pour les <span class="mark mark-orange">reversals</span> (annulations de transactions) et les <span class="mark mark-orange">mouvements de fonds</span> (transferts entre comptes internes).
+          En semaine 2, j'ai découvert que les requêtes étaient trop grosses pour une utilisation efficace dans mes futures anaylses QuickSight : mon script Python d'origine exportait 63 colonnes différentes dans la  bucket S3. J'ai dû repenser la structure pour la simplifier de 63 à 11 colonnes, en les regroupant par logique métier.
         </p>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          En semaine 2, j'ai aussi découvert que les requêtes étaient trop lourdes pour la base de production : mon script Python utilisait des <code>fetchall()</code> qui accumulaient toutes les données en mémoire et faisaient planter le processus. J'ai dû repenser la gestion de la mémoire et simplifier la structure de 63 à 11 colonnes.
+          Les tests de qualité automatiques étaient très stricts et généraient des erreurs difficiles à interpréter. J'ai passé beaucoup de temps à fixer des bugs de déploiement liés à des fonctions mutables comme <code>CURRENT_DATE</code> qui n'étaient pas acceptées par le parseur de Redshift. La compréhension de la logique métier derrière chaque requête a aussi été un défi, notamment pour les <span class="mark mark-orange">reversals</span> (annulations de transactions) et les <span class="mark mark-orange">mouvements de fonds</span> (transferts entre comptes internes).
         </p>
 
         <h3>Utilisation de l'IA</h3>
@@ -143,13 +143,13 @@
 
         <h3>Auto-évaluation nuancée</h3>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          Sur ce savoir-faire, je me sens aujourd'hui autonome : je sais écrire des requêtes SQL complexes pour Redshift, les transformer en vues matérialisées, et les faire passer les tests de qualité automatiques. La création d'une vue complète de zéro en semaine 8 montre que j'ai bien intégré la structure des tables et la logique métier.
+          Sur ce savoir-faire, je me sens aujourd'hui assez autonomne : je sais écrire des requêtes SQL complexes pour Redshift, les transformer en vues matérialisées, et les faire passer les tests de qualité automatiques. Seulement dans certains cas précis, je peux avoir besoin d'une aide extérieure pour me débloquer quand je ne trouve pas d'où vient l'erreur de déploiement. La création d'une vue complète de zéro en semaine 8 montre que j'ai tout de même bien intégré la structure des tables et la logique métier.
         </p>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          Ce que j'en retiens surtout, c'est l'importance de comprendre la logique métier avant de coder. Les requêtes impliquent des concepts complexes qu'il fallait maîtriser pour écrire du code correct. J'ai aussi appris à anticiper les contraintes de performance dès la conception, et à ne pas sous-estimer la différence entre une base de test et une base de production volumineuse.
+          Ce que j'en retiens surtout, c'est l'importance de comprendre la logique métier avant de coder. Les requêtes impliquent des concepts complexes qu'il fallait maîtriser pour écrire du code correct. J'ai aussi appris à anticiper les contraintes de mise en production future dès la conception, et à ne pas sous-estimer la différence entre une base de test et une base de production volumineuse.
         </p>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          Je pensais être plus à l'aise avec SQL avant le stage, mais la réalité de la production m'a montré que j'avais encore beaucoup à apprendre. Par contre, je suis assez fier de ma progression et de ma capacité à créer une vue complexe de zéro en fin de stage.
+          Je pensais être plus à l'aise avec SQL avant le stage, mais la réalité de la production m'a montré que j'avais encore beaucoup à apprendre. Par contre, je suis assez fier de ma progression, de mon aptitude à utiliser Git et de ma capacité à créer une vue complexe de zéro en fin de stage.
         </p>
 
         <div class="comparison-grid">
@@ -162,12 +162,12 @@
           <div class="comparison-card after">
             <div class="comparison-label">Après le stage</div>
             <p style="line-height: 1.6;">
-              Capacité à écrire des requêtes SQL complexes pour Redshift, à gérer les problèmes de mémoire sur des bases volumineuses, et à créer des vues matérialisées respectant des standards de qualité stricts. Bonne compréhension de la logique métier du domaine bancaire/transport (reversals, mouvements de fonds, soldes).
+              Capacité à écrire des requêtes SQL complexes pour Redshift et à créer des vues matérialisées et des jeux de données respectant des standards de qualité stricts. Bonne compréhension de la logique métier du domaine bancaire/transport (reversals, mouvements de fonds, soldes).
             </p>
           </div>
         </div>
         <p class="text-sm text-center text-ink/60 mt-3">
-          Avant le stage : <span class="font-semibold">débutant</span> → Après le stage : <span class="font-semibold text-vert">autonome</span>
+          Avant le stage : <span class="font-semibold">débutant</span> → Après le stage : <span class="font-semibold text-vert">quasi-autonome</span>
         </p>
       </div>
     </section>
@@ -187,7 +187,7 @@
 
         <h3>Synthèse</h3>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          J'ai travaillé avec le workflow Git professionnel de Kuba : branches dédiées (feat/reporting-cch puis feat/cch-checking après un stash), Pull Requests, tests qualité automatiques (syntaxe et parseurs), et déploiement via CDK. J'ai ajouté des DataSets au CDK existant et débuggé des erreurs de déploiement. La mise à jour de la base de test en semaine 6 a rendu le déploiement très compliqué, nécessitant l'aide de mon collègue Aurélien Bak pour modifier le CDK et comprendre les erreurs.
+          J'ai travaillé avec le workflow Git professionnel de Kuba : branches dédiées (feat/reporting-cch puis feat/cch-checking après un stash), Pull Requests, tests qualité automatiques (syntaxe et parseurs), et déploiement via CDK. J'ai ajouté des DataSets au CDK existant et débuggé des erreurs de déploiement. La mise à jour de la base de test en semaine 6 a rendu le déploiement très compliqué, nécessitant l'aide de mon collègue Aurélien Bak, développeur depuis longtemps dans la boîte qui a mis au point les CDK GitHub et a déjà travaillé des vues comme les miennes, pour modifier le CDK et comprendre les erreurs.
         </p>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
           Ce savoir-faire repose sur quatre savoir-faire élémentaires illustrés par la Trace 3 : utiliser Git en entreprise, déployer via CDK, débugger des erreurs CI/CD, et gérer des conflits de branche.
@@ -195,7 +195,7 @@
 
         <h3>Contexte d'apprentissage</h3>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          Avant le stage, j'utilisais déjà Git avec des branches pour les projets de l'IUT, mais je n'avais jamais travaillé avec des PR (Pull Requests), de la code review, ou du CI/CD. Le workflow professionnel était donc nouveau pour moi. J'ai appris sur le terrain, en suivant les méthodes de l'entreprise et en demandant de l'aide à mes collègues. Mon collègue Aurélien Bak, développeur depuis longtemps dans la boîte qui a mis au point les CDK GitHub et a déjà travaillé des vues comme les miennes, m'a beaucoup aidé à comprendre le processus.
+          Avant le stage, j'utilisais déjà Git avec des branches pour les projets de l'IUT, mais je n'avais jamais travaillé avec des PR (Pull Requests), de la code review, ou du CI/CD. Le workflow professionnel était donc nouveau pour moi. J'ai appris sur le terrain, en suivant les méthodes de l'entreprise et en demandant de l'aide à mes collègues. Mon collègue Aurélien Bak, m'a beaucoup aidé à comprendre le processus.
         </p>
 
         <h3>Difficultés rencontrées</h3>
@@ -203,7 +203,7 @@
           Le CDK était trop complexe pour mon niveau actuel. Quand je n'arrivais pas à comprendre les erreurs de déploiement, j'envoyais parfois les logs à l'IA pour rester autonome, mais ses réponses étaient souvent approximatives. J'ai donc appris à ne pas trop me fier à l'IA pour ce type de problèmes complexes et à demander de l'aide à mes collègues qui connaissaient mieux l'infrastructure de l'entreprise.
         </p>
         <p style="line-height: 1.7; margin-bottom: 1rem;">
-          En semaine 6, une mise à jour de la base de test a rendu le déploiement très compliqué. Plusieurs collègues y ont passé du temps et nous sommes restés bloqués dessus. C'est un peu flou pour moi car je n'étais pas un acteur majeur de cette résolution, mais cela a cassé le CDK et j'ai dû solliciter Aurélien Bak pour m'aider à le modifier et comprendre les erreurs. Cette expérience m'a montré que le CDK était complexe et que je devais solliciter de l'aide sur les parties les plus techniques.
+          En semaine 6, une mise à jour de la base de test a rendu le déploiement très compliqué. Plusieurs collègues y ont passé du temps et nous sommes restés bloqués dessus. C'est un peu flou pour moi car je n'étais pas un acteur majeur de cette résolution, mais cela a cassé le CDK et j'ai dû le solliciter à nouveau pour m'aider à le modifier et comprendre les erreurs. Cette expérience m'a montré que le CDK était complexe et que je devais solliciter de l'aide sur les parties les plus techniques.
         </p>
 
         <h3>Utilisation de l'IA</h3>
@@ -237,7 +237,7 @@
           </div>
         </div>
         <p class="text-sm text-center text-ink/60 mt-3">
-          Avant le stage : <span class="font-semibold">intermédiaire</span> (Git) → Après le stage : <span class="font-semibold text-orange">moyen</span> (Git + CDK)
+          Avant le stage : <span class="font-semibold">intermédiaire</span> (Git) → Après le stage : <span class="font-semibold text-orange">suffisant</span> (Git + CDK)
         </p>
       </div>
     </section>
